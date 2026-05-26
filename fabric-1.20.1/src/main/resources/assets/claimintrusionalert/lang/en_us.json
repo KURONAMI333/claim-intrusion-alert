@@ -1,0 +1,19 @@
+{
+    "claimintrusionalert.hint": "Run /howdididie to see exactly what just killed you.",
+    "claimintrusionalert.title": "Claim Intrusion Alert — your last death:",
+    "claimintrusionalert.cause": "Cause: %s",
+    "claimintrusionalert.where": "Died at (%s, %s, %s) in %s, on day %s.",
+    "claimintrusionalert.killer": "%s was about %s blocks to the %s.",
+    "claimintrusionalert.nearby": "%s hostile mob(s) were within 16 blocks at the time.",
+    "claimintrusionalert.nearby.none": "No hostile mobs were within 16 blocks.",
+    "claimintrusionalert.none": "No death recorded this session yet — come back after you die.",
+    "claimintrusionalert.playeronly": "No death to report (player not found or not online).",
+    "claimintrusionalert.dir.n": "North",
+    "claimintrusionalert.dir.ne": "Northeast",
+    "claimintrusionalert.dir.e": "East",
+    "claimintrusionalert.dir.se": "Southeast",
+    "claimintrusionalert.dir.s": "South",
+    "claimintrusionalert.dir.sw": "Southwest",
+    "claimintrusionalert.dir.w": "West",
+    "claimintrusionalert.dir.nw": "Northwest"
+}

@@ -1,0 +1,6 @@
+{
+  "claimintrusionalert.alert": "%s が %s で (%s, %s, %s) のブロックを%sしようとしました。",
+  "claimintrusionalert.action.break": "破壊",
+  "claimintrusionalert.action.place": "設置",
+  "claimintrusionalert.action.interact": "操作"
+}

@@ -1,0 +1,19 @@
+{
+    "claimintrusionalert.hint": "Use /howdididie para ver exatamente o que acabou de te matar.",
+    "claimintrusionalert.title": "Claim Intrusion Alert — sua última morte:",
+    "claimintrusionalert.cause": "Causa: %s",
+    "claimintrusionalert.where": "Morreu em (%1$s, %2$s, %3$s) em %4$s, no dia %5$s.",
+    "claimintrusionalert.killer": "%1$s estava a cerca de %2$s blocos para %3$s.",
+    "claimintrusionalert.nearby": "Havia %s mobs hostis num raio de 16 blocos na hora.",
+    "claimintrusionalert.nearby.none": "Nenhum mob hostil num raio de 16 blocos.",
+    "claimintrusionalert.none": "Nenhuma morte registrada nesta sessão — volte depois de morrer.",
+    "claimintrusionalert.playeronly": "Nenhuma morte para mostrar (jogador não encontrado ou offline).",
+    "claimintrusionalert.dir.n": "Norte",
+    "claimintrusionalert.dir.ne": "Nordeste",
+    "claimintrusionalert.dir.e": "Leste",
+    "claimintrusionalert.dir.se": "Sudeste",
+    "claimintrusionalert.dir.s": "Sul",
+    "claimintrusionalert.dir.sw": "Sudoeste",
+    "claimintrusionalert.dir.w": "Oeste",
+    "claimintrusionalert.dir.nw": "Noroeste"
+}

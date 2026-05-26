@@ -1,0 +1,36 @@
+# Claim Intrusion Alert - Forge 1.21.1 mods.toml
+modLoader="javafml"
+loaderVersion="${loader_version_range}"
+license="${mod_license}"
+
+[[mods]]
+modId="${mod_id}"
+version="${mod_version}"
+displayName="${mod_name}"
+authors="${mod_authors}"
+displayURL="https://github.com/KURONAMI333/claim-intrusion-alert"
+issueTrackerURL="https://github.com/KURONAMI333/claim-intrusion-alert/issues"
+description='''
+${mod_description}
+'''
+
+[[dependencies.${mod_id}]]
+    modId="forge"
+    type="required"
+    versionRange="${forge_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="minecraft"
+    type="required"
+    versionRange="${minecraft_version_range}"
+    ordering="NONE"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="ftbchunks"
+    type="required"
+    versionRange="[2101,)"
+    ordering="AFTER"
+    side="BOTH"

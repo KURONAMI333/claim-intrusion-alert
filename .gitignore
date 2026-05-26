@@ -1,0 +1,16 @@
+# Build / cache
+build/
+.gradle/
+run/
+*/build/
+*/.gradle/
+*/run/
+*.classpath
+*.project
+.settings/
+.idea/
+*.iml
+.vscode/
+
+# Release staging (jar 集約用)
+_release/

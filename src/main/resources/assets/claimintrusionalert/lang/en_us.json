@@ -1,0 +1,6 @@
+{
+  "claimintrusionalert.alert": "%s tried to %s a block at (%s, %s, %s) in %s.",
+  "claimintrusionalert.action.break": "break",
+  "claimintrusionalert.action.place": "place",
+  "claimintrusionalert.action.interact": "interact with"
+}

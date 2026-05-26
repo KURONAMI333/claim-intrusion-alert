@@ -1,0 +1,19 @@
+{
+    "claimintrusionalert.hint": "输入 /howdididie 可精确查看刚才是什么杀了你。",
+    "claimintrusionalert.title": "Claim Intrusion Alert — 你最近的死亡：",
+    "claimintrusionalert.cause": "死因：%s",
+    "claimintrusionalert.where": "在 %4$s 的 (%1$s, %2$s, %3$s)、第 %5$s 天死亡。",
+    "claimintrusionalert.killer": "%1$s 当时在 %3$s 方向约 %2$s 格处。",
+    "claimintrusionalert.nearby": "当时 16 格内有 %s 只敌对生物。",
+    "claimintrusionalert.nearby.none": "16 格内没有敌对生物。",
+    "claimintrusionalert.none": "本次会话还没有死亡记录 —— 死了之后再来。",
+    "claimintrusionalert.playeronly": "没有可显示的死亡（玩家未找到或不在线）。",
+    "claimintrusionalert.dir.n": "北",
+    "claimintrusionalert.dir.ne": "东北",
+    "claimintrusionalert.dir.e": "东",
+    "claimintrusionalert.dir.se": "东南",
+    "claimintrusionalert.dir.s": "南",
+    "claimintrusionalert.dir.sw": "西南",
+    "claimintrusionalert.dir.w": "西",
+    "claimintrusionalert.dir.nw": "西北"
+}
