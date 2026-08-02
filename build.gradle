@@ -17,6 +17,15 @@ sourceSets.main.resources {
     exclude("src/generated/**/.cache")
 }
 
+// headless 検証専用の source set。`jar` は sourceSets.main だけを詰めるので、
+// ここに置いたテストクラスと構造テンプレ NBT は出荷 jar に入らない。
+sourceSets {
+    gametest {
+        compileClasspath += sourceSets.main.output
+        runtimeClasspath += sourceSets.main.output
+    }
+}
+
 base {
     archivesName = mod_id
 }
@@ -32,13 +41,34 @@ neoForge {
     }
 
     runs {
+        // 実機確認は server + client 2本で行う（claim 所有者と非メンバーを同時に立てないと
+        // 「所有者側に通知が出る」を確認できない）。ログとワールドが混ざらないよう
+        // gameDirectory を分ける。同時起動するのはこの検証の時だけ。
         client {
             client()
+            gameDirectory = file('run/client')
+        }
+
+        clientAlt {
+            client()
+            programArgument '--username=Intruder'
+            gameDirectory = file('run/clientAlt')
         }
 
         server {
             server()
             programArgument '--nogui'
+            gameDirectory = file('run/server')
+        }
+
+        // headless の挙動検証。GUI は開かない。gameDirectory は専用に分けて
+        // 手動セッションが残したワールドデータを引き継がないようにする
+        // （run/gametest/mods に OPAC の jar を置くのが前提）。
+        gameTestServer {
+            type = 'gameTestServer'
+            gameDirectory = file('run/gametest')
+            systemProperty 'neoforge.enabledGameTestNamespaces', project.mod_id
+            sourceSet = sourceSets.gametest
         }
 
         configureEach {
@@ -50,8 +80,13 @@ neoForge {
     mods {
         "${mod_id}" {
             sourceSet(sourceSets.main)
+            // GameTest の登録スキャンは mod のファイル一覧を見るので、検証用 source set も
+            // 同じ mod に属させる。jar の中身には影響しない。
+            sourceSet(sourceSets.gametest)
         }
     }
+
+    addModdingDependenciesTo(sourceSets.gametest)
 }
 
 configurations {
@@ -64,12 +99,15 @@ repositories {
 }
 
 dependencies {
-    // FTB Chunks (required dependency) — claim/team API + ChunkDimPos
+    // FTB Chunks (soft dependency) — claim/team API + ChunkDimPos.
+    // runtimeOnly は dev client で実際に claim を作って通知を確認するために残す。
     compileOnly "dev.ftb.mods:ftb-chunks-neoforge:${ftb_chunks_version}"
     runtimeOnly  "dev.ftb.mods:ftb-chunks-neoforge:${ftb_chunks_version}"
-    // FTB Chunks の依存も runtime に必要なら順次足す (architectury, etc)
     compileOnly "dev.ftb.mods:ftb-library-neoforge:${ftb_library_version}"
     runtimeOnly  "dev.ftb.mods:ftb-library-neoforge:${ftb_library_version}"
+
+    // Open Parties and Claims (soft dependency) — 公開 maven が無いので依存を持たず、
+    // OpacProvider が完全にリフレクションで叩く。ここに足すものは無い。
 
     testImplementation platform('org.junit:junit-bom:5.10.2')
     testImplementation 'org.junit.jupiter:junit-jupiter'
@@ -78,6 +116,11 @@ dependencies {
 
 tasks.named('test', Test) {
     useJUnitPlatform()
+}
+
+// 検証コードの腐りをビルドで拾う（実行はしない。実行は runGameTestServer）。
+tasks.named('check') {
+    dependsOn tasks.named('compileGametestJava')
 }
 
 var generateModMetadata = tasks.register("generateModMetadata", ProcessResources) {
