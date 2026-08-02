@@ -1,21 +1,42 @@
 # Claim Intrusion Alert
 
-Vanilla FTB Chunks tells the intruder they can't break a block. This tells you, the claim owner, that someone tried.
+When someone tries to break, place, or interact inside your claim and the claim mod blocks them, you get a one-line chat message saying who it was, what they tried, and where.
 
-When a non-team player tries to break, place, or interact inside your FTB Chunks claim and the action is blocked, every online team member gets a one-line chat alert:
+Works with **FTB Chunks** and **Open Parties and Claims**. Either one is enough, both together is fine, and neither of them tells the claim owner anything — the blocked player sees "you can't do that", and the owner sees nothing at all.
 
 ```
 ⚠ Alex tried to break a block at (210, 64, -88) in minecraft:overworld.
 ```
 
-Otherwise you'd only find out by digging through the log file later — or when a chunk goes missing. [FTB-Mods-Issues #257](https://github.com/FTBTeam/FTB-Mods-Issues/issues/257) asked for exactly this; the FTB maintainer marked it "no longer planned for FTB," so this is a small drop-in that adds the missing notification.
+**Offline? You still find out.** If nobody from the team or party is online when it happens, the attempts are stored and posted to you the next time you log in. Up to 20 per player, kept for 7 days.
 
-It listens to vanilla `BlockEvent.BreakEvent` and `PlayerInteractEvent.RightClickBlock` at HIGHEST priority and, when one is canceled, asks FTB Chunks' public API whether the position is a claim owned by someone other than the actor. There's a 5-minute cooldown per intruder-and-claim so it doesn't spam, no mixin (it uses `FTBChunksAPI`), and it silently no-ops if FTB Chunks' API shifts in an update. The only state is an in-memory cooldown map, cleared on server stop.
+```
+Intrusion attempts while you were away: 3
+```
+
+Teammates and allies never trigger an alert — the mod asks the claim mod itself who is allowed to be there, rather than guessing. The same intruder hitting the same chunk is reported once every 5 minutes, so a determined griefer can't flood your chat.
+
+**Summary field (not part of the body):** Tells the claim owner when someone tries to grief their FTB Chunks or Open Parties and Claims territory — name, action, coordinates, plus a digest for attempts that happened while offline.
+
+**Install**
+
+1. Install FTB Chunks or Open Parties and Claims (or both).
+2. Drop this in your `mods` folder, server side.
+
+No config file, no commands, nothing to set up. Output is localized in 9 languages.
 
 **Dependencies**
 
-- FTB Chunks ≥ 2101.0 — required. NeoForge 1.21.1 only, because FTB Chunks has no Forge 1.21.1 build.
+- [FTB Chunks](https://modrinth.com/mod/ftb-chunks) — optional
+- [Open Parties and Claims](https://modrinth.com/mod/open-parties-and-claims) — optional
 
-Server-side only — clients don't need it.
+At least one of the two must be installed. With neither, the mod logs one line at startup and stays idle.
+
+**Scope and limitations**
+
+- Server-side. Clients don't need it, and nothing is drawn on screen — alerts are chat messages.
+- Covers block break, block place, and block interaction. Entity interactions and item use are not reported.
+- Reports what the claim mod *would* block, so an attempt another mod cancels first is still reported as an attempt.
+- 0.1.0 never actually sent an alert: it waited for a cancelled event that the mod loader does not deliver to it. If you are running 0.1.0, it has been silent the whole time — 0.2.0 is what makes it work.
 
 Free to use in any modpack. Source and issues: https://github.com/KURONAMI333/claim-intrusion-alert
