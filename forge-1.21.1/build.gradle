@@ -54,11 +54,14 @@ repositories {
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
 
-    // FTB Chunks (required dependency)
-    compileOnly "dev.ftb.mods:ftb-chunks-forge:${ftb_chunks_version}"
-    runtimeOnly "dev.ftb.mods:ftb-chunks-forge:${ftb_chunks_version}"
-    compileOnly "dev.ftb.mods:ftb-library-forge:${ftb_library_version}"
-    runtimeOnly "dev.ftb.mods:ftb-library-forge:${ftb_library_version}"
+    // FTB Chunks is intentionally absent: it has never published a Forge 1.21.1 build
+    // on maven.ftb.dev/releases (confirmed via maven-metadata.xml, 2026-08-02 — the newest
+    // MC-version-coded artifact is 2004.x.x = 1.20.4). This cell supports Open Parties and
+    // Claims only, via reflection (OpacProvider), so it needs no compile-time dependency
+    // for claim MOD integration at all.
+
+    // Open Parties and Claims (soft dependency) — 公開 maven が無いので依存を持たず、
+    // OpacProvider が完全にリフレクションで叩く。ここに足すものは無い。
 }
 
 // ─── mods.toml と pack.mcmeta のテンプレート展開 ────────────────────

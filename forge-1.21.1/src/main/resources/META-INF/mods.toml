@@ -14,23 +14,44 @@ description='''
 ${mod_description}
 '''
 
+# No [[mixins]]: Claim Intrusion Alert listens to vanilla BlockEvent /
+# PlayerInteractEvent and asks the claim mod whether the action would be
+# blocked (OPAC via reflection). It never cancels anything itself.
+#
+# ftbchunks is declared below as an optional dependency for forward
+# compatibility, but this cell's code does not implement an FTB Chunks
+# provider (see ClaimProviders.java) — FTB Chunks has never published a
+# Forge 1.21.1 build on maven.ftb.dev/releases. Only Open Parties and
+# Claims is actually detected in this cell.
+
 [[dependencies.${mod_id}]]
     modId="forge"
-    type="required"
+    mandatory=true
     versionRange="${forge_version_range}"
     ordering="NONE"
     side="BOTH"
 
 [[dependencies.${mod_id}]]
     modId="minecraft"
-    type="required"
+    mandatory=true
     versionRange="${minecraft_version_range}"
     ordering="NONE"
     side="BOTH"
 
+# Both claim mods are optional: either one alone is enough, and with neither
+# installed the mod just stays idle. versionRange is deliberately wide — this
+# is an add-on and the host mods use compound version strings that break
+# narrow ranges.
 [[dependencies.${mod_id}]]
     modId="ftbchunks"
-    type="required"
-    versionRange="[2101,)"
+    mandatory=false
+    versionRange="[0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="openpartiesandclaims"
+    mandatory=false
+    versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"
