@@ -1,19 +1,6 @@
 {
-    "claimintrusionalert.hint": "Введи /howdididie, чтобы точно узнать, что тебя только что убило.",
-    "claimintrusionalert.title": "Claim Intrusion Alert — твоя последняя смерть:",
-    "claimintrusionalert.cause": "Причина: %s",
-    "claimintrusionalert.where": "Погиб в (%1$s, %2$s, %3$s) в %4$s, день %5$s.",
-    "claimintrusionalert.killer": "%1$s был примерно в %2$s блоках к %3$s.",
-    "claimintrusionalert.nearby": "В радиусе 16 блоков тогда было %s враждебных мобов.",
-    "claimintrusionalert.nearby.none": "В радиусе 16 блоков враждебных мобов не было.",
-    "claimintrusionalert.none": "В этой сессии смертей ещё нет — вернись после гибели.",
-    "claimintrusionalert.playeronly": "Нет смерти для показа (игрок не найден или оффлайн).",
-    "claimintrusionalert.dir.n": "север",
-    "claimintrusionalert.dir.ne": "северо-восток",
-    "claimintrusionalert.dir.e": "восток",
-    "claimintrusionalert.dir.se": "юго-восток",
-    "claimintrusionalert.dir.s": "юг",
-    "claimintrusionalert.dir.sw": "юго-запад",
-    "claimintrusionalert.dir.w": "запад",
-    "claimintrusionalert.dir.nw": "северо-запад"
+  "claimintrusionalert.alert.break": "%1$s попытался сломать блок в (%2$s, %3$s, %4$s) в %5$s.",
+  "claimintrusionalert.alert.place": "%1$s попытался поставить блок в (%2$s, %3$s, %4$s) в %5$s.",
+  "claimintrusionalert.alert.interact": "%1$s попытался взаимодействовать с блоком в (%2$s, %3$s, %4$s) в %5$s.",
+  "claimintrusionalert.digest.header": "Попытки вторжения за время вашего отсутствия: %1$s"
 }

@@ -1,48 +1,25 @@
 package com.kuronami.claimintrusionalert;
 
-import com.kuronami.claimintrusionalert.command.ClaimIntrusionAlertCommand;
-import com.kuronami.claimintrusionalert.death.IntrusionListener;
+import com.kuronami.claimintrusionalert.intrusion.IntrusionListener;
+import com.kuronami.claimintrusionalert.provider.ClaimProviders;
+
 import net.fabricmc.api.ModInitializer;
-import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
-import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents;
 import net.fabricmc.fabric.api.event.lifecycle.v1.ServerLifecycleEvents;
-import net.minecraft.server.level.ServerPlayer;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 /**
- * Claim Intrusion Alert — entry point (Fabric 1.21.1).
+ * Claim Intrusion Alert — entry point (Fabric 1.20.1)。
  *
- * <p>The vanilla death message says "you blew up". This says <em>what</em>
- * blew you up, exactly where, from which direction and how far, with how
- * many hostiles around, on what day — so you can avoid it next time.
- *
- * <p>Three Fabric API hooks, nothing else: {@code AFTER_DEATH} (the
- * forensic record + auto-posted report), {@code CommandRegistrationCallback}
- * (the {@code /howdididie} command), {@code SERVER_STOPPING} (clear the
- * in-memory record). No mixin, no config, no registered game object, no
- * passive tick task.
+ * <p>claim MOD (FTB Chunks / Open Parties and Claims) が守っているチャンクで、非メンバー・
+ * 非 ally が ブロックの破壊・設置・右クリックを試みた瞬間に、claim 所有者とその team / party の
+ * オンラインメンバーへ chat 通知を送る。ロジックは NeoForge 基準セルと同一で、
+ * {@link IntrusionListener} が provider へ「この行為はここで阻止されるか」を事前問い合わせる。
  */
-public class ClaimIntrusionAlertFabric implements ModInitializer {
-
-    public static final String MOD_ID = "claimintrusionalert";
-    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_ID);
+public final class ClaimIntrusionAlertFabric implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        LOGGER.info("Claim Intrusion Alert ready — run /howdididie after a death.");
-
-        ServerLivingEntityEvents.AFTER_DEATH.register((entity, source) -> {
-            if (entity instanceof ServerPlayer player) {
-                IntrusionListener.record(player, source);
-            }
-        });
-
-        CommandRegistrationCallback.EVENT.register(
-            (dispatcher, registryAccess, environment) ->
-                ClaimIntrusionAlertCommand.register(dispatcher));
-
-        ServerLifecycleEvents.SERVER_STOPPING.register(
-            server -> IntrusionListener.clear());
+        IntrusionListener.register();
+        // 他 MOD のロード判定に onInitialize は早すぎる可能性があるため SERVER_STARTING で確定させる。
+        ServerLifecycleEvents.SERVER_STARTING.register(server -> ClaimProviders.init());
     }
 }

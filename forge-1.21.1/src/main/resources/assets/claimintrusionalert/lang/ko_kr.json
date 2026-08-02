@@ -1,19 +1,6 @@
 {
-    "claimintrusionalert.hint": "/howdididie 로 방금 무엇에 죽었는지 정확히 볼 수 있어요.",
-    "claimintrusionalert.title": "Claim Intrusion Alert — 가장 최근의 죽음:",
-    "claimintrusionalert.cause": "사인: %s",
-    "claimintrusionalert.where": "%4$s의 (%1$s, %2$s, %3$s)에서 %5$s일차에 사망.",
-    "claimintrusionalert.killer": "%1$s이(가) 약 %2$s블록 %3$s쪽에 있었어요.",
-    "claimintrusionalert.nearby": "그때 16블록 안에 적대 몹이 %s마리 있었어요.",
-    "claimintrusionalert.nearby.none": "16블록 안에 적대 몹은 없었어요.",
-    "claimintrusionalert.none": "이번 세션에는 아직 사망 기록이 없어요 — 죽은 뒤 다시 시도하세요.",
-    "claimintrusionalert.playeronly": "보여줄 죽음이 없어요 (플레이어를 찾을 수 없거나 오프라인).",
-    "claimintrusionalert.dir.n": "북",
-    "claimintrusionalert.dir.ne": "북동",
-    "claimintrusionalert.dir.e": "동",
-    "claimintrusionalert.dir.se": "남동",
-    "claimintrusionalert.dir.s": "남",
-    "claimintrusionalert.dir.sw": "남서",
-    "claimintrusionalert.dir.w": "서",
-    "claimintrusionalert.dir.nw": "북서"
+  "claimintrusionalert.alert.break": "%1$s 님이 %5$s의 (%2$s, %3$s, %4$s)에서 블록을 파괴하려고 했습니다.",
+  "claimintrusionalert.alert.place": "%1$s 님이 %5$s의 (%2$s, %3$s, %4$s)에서 블록을 설치하려고 했습니다.",
+  "claimintrusionalert.alert.interact": "%1$s 님이 %5$s의 (%2$s, %3$s, %4$s)에서 블록과 상호작용하려고 했습니다.",
+  "claimintrusionalert.digest.header": "자리를 비운 사이의 침입 시도: %1$s 건"
 }

@@ -6,9 +6,9 @@
   "description": "${mod_description}",
   "authors": ["${mod_authors}"],
   "contact": {
-    "homepage": "https://github.com/KURONAMI333/death-forensics",
-    "issues":   "https://github.com/KURONAMI333/death-forensics/issues",
-    "sources":  "https://github.com/KURONAMI333/death-forensics"
+    "homepage": "https://github.com/KURONAMI333/claim-intrusion-alert",
+    "issues":   "https://github.com/KURONAMI333/claim-intrusion-alert/issues",
+    "sources":  "https://github.com/KURONAMI333/claim-intrusion-alert"
   },
   "license": "${mod_license}",
 
@@ -23,5 +23,10 @@
     "fabric-api":   "*",
     "minecraft":    "~1.20.1",
     "java":         ">=17"
+  },
+
+  "suggests": {
+    "ftbchunks": "*",
+    "openpartiesandclaims": "*"
   }
 }

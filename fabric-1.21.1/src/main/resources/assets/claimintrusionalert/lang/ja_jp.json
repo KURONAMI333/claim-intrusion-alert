@@ -1,19 +1,6 @@
 {
-    "claimintrusionalert.hint": "/howdididie で「今のは何にやられたか」を正確に確認できるよ。",
-    "claimintrusionalert.title": "Claim Intrusion Alert — 直近の死：",
-    "claimintrusionalert.cause": "死因: %s",
-    "claimintrusionalert.where": "%4$s の (%1$s, %2$s, %3$s)、%5$s 日目に死亡。",
-    "claimintrusionalert.killer": "%1$s が約 %2$s ブロック、%3$s の方向にいた。",
-    "claimintrusionalert.nearby": "そのとき敵対 mob が 16 ブロック以内に %s 体いた。",
-    "claimintrusionalert.nearby.none": "16 ブロック以内に敵対 mob はいなかった。",
-    "claimintrusionalert.none": "このセッションではまだ死亡記録なし — 死んでからもう一度どうぞ。",
-    "claimintrusionalert.playeronly": "報告できる死がない（プレイヤーが見つからない／オフライン）。",
-    "claimintrusionalert.dir.n": "北",
-    "claimintrusionalert.dir.ne": "北東",
-    "claimintrusionalert.dir.e": "東",
-    "claimintrusionalert.dir.se": "南東",
-    "claimintrusionalert.dir.s": "南",
-    "claimintrusionalert.dir.sw": "南西",
-    "claimintrusionalert.dir.w": "西",
-    "claimintrusionalert.dir.nw": "北西"
+  "claimintrusionalert.alert.break": "%1$s が (%2$s, %3$s, %4$s) / %5$s でブロックを破壊しようとしました。",
+  "claimintrusionalert.alert.place": "%1$s が (%2$s, %3$s, %4$s) / %5$s でブロックを設置しようとしました。",
+  "claimintrusionalert.alert.interact": "%1$s が (%2$s, %3$s, %4$s) / %5$s でブロックを操作しようとしました。",
+  "claimintrusionalert.digest.header": "留守中の侵入試行: %1$s 件"
 }

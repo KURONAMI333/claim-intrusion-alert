@@ -43,16 +43,27 @@ minecraft {
 sourceSets.main.resources { srcDir 'src/generated/resources' }
 
 repositories {
-    // Vanilla Forge only. Claim Intrusion Alert is read-only, on-demand,
-    // zero dependency — no external libs, no host-mod.
     maven {
         name = 'ParchmentMC'
         url = 'https://maven.parchmentmc.org'
     }
+    maven { url = 'https://maven.ftb.dev/releases' }
+    maven { url = 'https://maven.architectury.dev/' }
 }
 
 dependencies {
     minecraft "net.minecraftforge:forge:${minecraft_version}-${forge_version}"
+
+    // FTB Chunks (soft dependency) — claim/team API + ChunkDimPos.
+    // transitive = false: pulls in JEI and other third-party maven coordinates we have no
+    // repository for and do not need (we only touch the claim/team API classes).
+    compileOnly(fg.deobf("dev.ftb.mods:ftb-chunks-forge:${ftb_chunks_version}")) { transitive = false }
+    runtimeOnly(fg.deobf("dev.ftb.mods:ftb-chunks-forge:${ftb_chunks_version}")) { transitive = false }
+    compileOnly(fg.deobf("dev.ftb.mods:ftb-library-forge:${ftb_library_version}")) { transitive = false }
+    runtimeOnly(fg.deobf("dev.ftb.mods:ftb-library-forge:${ftb_library_version}")) { transitive = false }
+
+    // Open Parties and Claims (soft dependency) — 公開 maven が無いので依存を持たず、
+    // OpacProvider が完全にリフレクションで叩く。ここに足すものは無い。
 }
 
 // ─── mods.toml と pack.mcmeta のテンプレート展開 ────────────────────

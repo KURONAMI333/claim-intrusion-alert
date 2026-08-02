@@ -1,39 +1,42 @@
-package com.kuronami.claimintrusionalert.death;
+package com.kuronami.claimintrusionalert.intrusion;
 
-import net.minecraft.network.chat.Component;
+import java.util.List;
+import java.util.UUID;
+
+import net.minecraft.core.BlockPos;
+import net.minecraft.resources.ResourceKey;
+import net.minecraft.world.level.Level;
 
 /**
- * One reconstructed death. Everything here comes straight from vanilla
- * {@code DamageSource} / world state at the instant of death — no
- * guessing, no modded attribution heuristics. Same discipline as Lag
- * Whisperer: only state what is certain.
+ * 妨害アクション 1 件の不変記録。
  *
- * <p>{@code deathMessage} is vanilla's own death Component captured at
- * death time and replayed later, so it re-localizes on whoever's client
- * reads it (a Japanese player sees the Japanese cause even on an English
- * server) without us re-implementing every damage type.
- *
- * @param deathMessage   vanilla's localized death message Component
- * @param x,y,z          block position of death
- * @param dimension      short dimension name ("overworld")
- * @param day            in-world day number at death
- * @param killerType     pretty entity-type of the responsible entity, or
- *                        empty if the death was environmental
- * @param killerDistance blocks between victim and killer at death, or -1
- * @param killerDir      8-wind compass direction to the killer, or empty
- * @param nearbyHostiles hostile mobs within 16 blocks at death
+ * @param intruderUuid     侵入者の UUID
+ * @param intruderName     侵入者の表示名
+ * @param action           break / place / interact
+ * @param dimension        妨害が起きた次元
+ * @param pos              妨害対象のブロック座標
+ * @param timestampMs      サーバー時刻 (ms)
+ * @param recipients       その場で chat を送る宛先（claim 所有者 + team / party member のオンライン分）
+ * @param absentRecipients 同じ team / party のオフライン member。{@link IntrusionDigest} に積まれ、
+ *                         次回ログイン時にまとめて出る。digest から復元した記録では両方とも空
  */
 public record IntrusionRecord(
-        Component deathMessage,
-        int x, int y, int z,
-        String dimension,
-        long day,
-        String killerType,
-        int killerDistance,
-        String killerDir,
-        int nearbyHostiles) {
+        UUID intruderUuid,
+        String intruderName,
+        Action action,
+        ResourceKey<Level> dimension,
+        BlockPos pos,
+        long timestampMs,
+        List<UUID> recipients,
+        List<UUID> absentRecipients
+) {
 
-    public boolean hasKiller() {
-        return killerType != null && !killerType.isEmpty();
+    public enum Action {
+        BREAK, PLACE, INTERACT;
+
+        /** lang key suffix: claimintrusionalert.alert.{break|place|interact}。 */
+        public String key() {
+            return name().toLowerCase(java.util.Locale.ROOT);
+        }
     }
 }

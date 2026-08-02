@@ -8,15 +8,16 @@ modId="${mod_id}"
 version="${mod_version}"
 displayName="${mod_name}"
 authors="${mod_authors}"
-displayURL="https://github.com/KURONAMI333/death-forensics"
-issueTrackerURL="https://github.com/KURONAMI333/death-forensics/issues"
+displayURL="https://github.com/KURONAMI333/claim-intrusion-alert"
+issueTrackerURL="https://github.com/KURONAMI333/claim-intrusion-alert/issues"
 description='''
 ${mod_description}
 '''
 
-# No [[mixins]]: Claim Intrusion Alert only listens to vanilla LivingDeathEvent
-# and stores a small per-player record. No mixin, no registered game
-# object, no passive tick task.
+# No [[mixins]]: Claim Intrusion Alert listens to vanilla BlockEvent /
+# PlayerInteractEvent and asks the claim mod whether the action would be
+# blocked (FTB Chunks public API / OPAC via reflection). It never cancels
+# anything itself.
 
 [[dependencies.${mod_id}]]
     modId="forge"
@@ -30,4 +31,22 @@ ${mod_description}
     mandatory=true
     versionRange="${minecraft_version_range}"
     ordering="NONE"
+    side="BOTH"
+
+# Both claim mods are optional: either one alone is enough, and with neither
+# installed the mod just stays idle. versionRange is deliberately wide — this
+# is an add-on and the host mods use compound version strings that break
+# narrow ranges.
+[[dependencies.${mod_id}]]
+    modId="ftbchunks"
+    mandatory=false
+    versionRange="[0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="openpartiesandclaims"
+    mandatory=false
+    versionRange="[0,)"
+    ordering="AFTER"
     side="BOTH"
