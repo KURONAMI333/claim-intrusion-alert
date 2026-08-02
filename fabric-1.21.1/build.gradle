@@ -26,11 +26,13 @@ dependencies {
     // FTB Chunks (soft dependency) — claim/team API + ChunkDimPos.
     // transitive = false: ftb-chunks-fabric / ftb-library-fabric pull in JEI and other
     // third-party maven coordinates we have no repository for and do not need (we only
-    // touch the claim/team API classes). modLocalRuntime keeps it out of the published jar.
+    // touch the claim/team API classes). compileOnly only: nothing is bundled into the published jar.
     modCompileOnly("dev.ftb.mods:ftb-chunks-fabric:${ftb_chunks_version}") { transitive = false }
-    modLocalRuntime("dev.ftb.mods:ftb-chunks-fabric:${ftb_chunks_version}") { transitive = false }
     modCompileOnly("dev.ftb.mods:ftb-library-fabric:${ftb_library_version}") { transitive = false }
-    modLocalRuntime("dev.ftb.mods:ftb-library-fabric:${ftb_library_version}") { transitive = false }
+
+    // modLocalRuntime は置かない: FTB Chunks / FTB Library だけを推移依存なしで dev ランタイムへ
+    // 入れると architectury / ftbteams が欠けて Fabric Loader の解決が落ち、dev server が起動
+    // しなくなる（soft dependency なので dev ランタイムに居る必要もない）。
 
     // Open Parties and Claims (soft dependency) — 公開 maven が無いので依存を持たず、
     // OpacProvider が完全にリフレクションで叩く。ここに足すものは無い。
