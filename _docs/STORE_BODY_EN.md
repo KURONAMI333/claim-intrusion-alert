@@ -16,8 +16,6 @@ Intrusion attempts while you were away: 3
 
 Teammates and allies never trigger an alert — the mod asks the claim mod itself who is allowed to be there, rather than guessing. The same intruder hitting the same chunk is reported once every 5 minutes, so a determined griefer can't flood your chat.
 
-**Summary field (not part of the body):** Tells the claim owner when someone tries to grief their FTB Chunks or Open Parties and Claims territory — name, action, coordinates, plus a digest for attempts that happened while offline.
-
 **Install**
 
 1. Install FTB Chunks or Open Parties and Claims (or both).
@@ -27,7 +25,7 @@ No config file, no commands, nothing to set up. Output is localized in 9 languag
 
 **Dependencies**
 
-- [FTB Chunks](https://modrinth.com/mod/ftb-chunks) — optional
+- [FTB Chunks](https://www.curseforge.com/minecraft/mc-mods/ftb-chunks-forge) — optional (CurseForge only; FTB Chunks is not published on Modrinth)
 - [Open Parties and Claims](https://modrinth.com/mod/open-parties-and-claims) — optional
 
 At least one of the two must be installed. With neither, the mod logs one line at startup and stays idle.
