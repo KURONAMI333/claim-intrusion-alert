@@ -1,9 +1,11 @@
 # Build / cache
 build/
 .gradle/
+.gradle-home/
 run/
 */build/
 */.gradle/
+*/.gradle-home/
 */run/
 *.classpath
 *.project
@@ -14,3 +16,7 @@ run/
 
 # Release staging (jar 集約用)
 _release/
+
+# 統括↔executor の作業文書（公開 repo に入れない）
+_handoff/
+GAP_LOG.md
