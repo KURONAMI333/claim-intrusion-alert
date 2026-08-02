@@ -1,0 +1,6 @@
+{
+  "claimintrusionalert.alert.break": "%1$s a tenté de casser un bloc en (%2$s, %3$s, %4$s) dans %5$s.",
+  "claimintrusionalert.alert.place": "%1$s a tenté de placer un bloc en (%2$s, %3$s, %4$s) dans %5$s.",
+  "claimintrusionalert.alert.interact": "%1$s a tenté d'interagir avec un bloc en (%2$s, %3$s, %4$s) dans %5$s.",
+  "claimintrusionalert.digest.header": "Tentatives d'intrusion pendant votre absence : %1$s"
+}

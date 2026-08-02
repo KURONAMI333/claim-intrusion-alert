@@ -1,6 +1,6 @@
 {
-  "claimintrusionalert.alert": "%s が %s で (%s, %s, %s) のブロックを%sしようとしました。",
-  "claimintrusionalert.action.break": "破壊",
-  "claimintrusionalert.action.place": "設置",
-  "claimintrusionalert.action.interact": "操作"
+  "claimintrusionalert.alert.break": "%1$s が (%2$s, %3$s, %4$s) / %5$s でブロックを破壊しようとしました。",
+  "claimintrusionalert.alert.place": "%1$s が (%2$s, %3$s, %4$s) / %5$s でブロックを設置しようとしました。",
+  "claimintrusionalert.alert.interact": "%1$s が (%2$s, %3$s, %4$s) / %5$s でブロックを操作しようとしました。",
+  "claimintrusionalert.digest.header": "留守中の侵入試行: %1$s 件"
 }

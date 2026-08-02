@@ -1,6 +1,6 @@
 {
-  "claimintrusionalert.alert": "%s tried to %s a block at (%s, %s, %s) in %s.",
-  "claimintrusionalert.action.break": "break",
-  "claimintrusionalert.action.place": "place",
-  "claimintrusionalert.action.interact": "interact with"
+  "claimintrusionalert.alert.break": "%1$s tried to break a block at (%2$s, %3$s, %4$s) in %5$s.",
+  "claimintrusionalert.alert.place": "%1$s tried to place a block at (%2$s, %3$s, %4$s) in %5$s.",
+  "claimintrusionalert.alert.interact": "%1$s tried to interact with a block at (%2$s, %3$s, %4$s) in %5$s.",
+  "claimintrusionalert.digest.header": "Intrusion attempts while you were away: %1$s"
 }

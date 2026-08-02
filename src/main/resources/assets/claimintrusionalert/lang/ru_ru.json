@@ -1,0 +1,6 @@
+{
+  "claimintrusionalert.alert.break": "%1$s попытался сломать блок в (%2$s, %3$s, %4$s) в %5$s.",
+  "claimintrusionalert.alert.place": "%1$s попытался поставить блок в (%2$s, %3$s, %4$s) в %5$s.",
+  "claimintrusionalert.alert.interact": "%1$s попытался взаимодействовать с блоком в (%2$s, %3$s, %4$s) в %5$s.",
+  "claimintrusionalert.digest.header": "Попытки вторжения за время вашего отсутствия: %1$s"
+}

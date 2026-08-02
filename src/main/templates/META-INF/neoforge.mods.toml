@@ -12,7 +12,9 @@ ${mod_description}
 '''
 
 # No [[mixins]]: Claim Intrusion Alert listens to vanilla BlockEvent /
-# PlayerInteractEvent at HIGHEST priority and calls FTB Chunks public API.
+# PlayerInteractEvent and asks the claim mod whether the action would be
+# blocked (FTB Chunks public API / OPAC via reflection). It never cancels
+# anything itself.
 
 # NOTE: versionRange uses neo_version, NOT loader_version_range
 # (composing the loader range here yields an unparseable range and
@@ -31,9 +33,20 @@ ${mod_description}
     ordering="NONE"
     side="BOTH"
 
+# Both claim mods are optional: either one alone is enough, and with neither
+# installed the mod just stays idle. versionRange is deliberately wide — this
+# is an add-on and the host mods use compound version strings that break
+# narrow ranges.
 [[dependencies.${mod_id}]]
     modId="ftbchunks"
-    type="required"
-    versionRange="[2101,)"
+    type="optional"
+    versionRange="[0,)"
+    ordering="AFTER"
+    side="BOTH"
+
+[[dependencies.${mod_id}]]
+    modId="openpartiesandclaims"
+    type="optional"
+    versionRange="[0,)"
     ordering="AFTER"
     side="BOTH"

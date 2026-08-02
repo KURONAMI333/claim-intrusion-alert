@@ -1,0 +1,6 @@
+{
+  "claimintrusionalert.alert.break": "%1$s 试图在 %5$s 的 (%2$s, %3$s, %4$s) 破坏方块。",
+  "claimintrusionalert.alert.place": "%1$s 试图在 %5$s 的 (%2$s, %3$s, %4$s) 放置方块。",
+  "claimintrusionalert.alert.interact": "%1$s 试图在 %5$s 的 (%2$s, %3$s, %4$s) 与方块互动。",
+  "claimintrusionalert.digest.header": "你离开期间的入侵尝试：%1$s 次"
+}
