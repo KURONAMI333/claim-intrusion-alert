@@ -119,7 +119,7 @@ PROJECT_REGISTRY 標準マトリクス:
 
 ## ライセンス
 
-MIT (kuronami_cf シリーズ標準)、modpack 自由配布。
+All Rights Reserved (KURONAMI 標準)、modpack への同梱は自由。
 
 ## 実装 TODO (次セッション着手)
 

@@ -2,7 +2,7 @@
 
 > Someone tries to grief your claim and gets blocked — **you get told**. Name, action, coordinates. FTB Chunks and Open Parties and Claims both notify the intruder and nobody else.
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+[![License: All Rights Reserved](https://img.shields.io/badge/License-All%20Rights%20Reserved-lightgrey.svg)](LICENSE)
 [![Modrinth](https://img.shields.io/badge/Modrinth-claim--intrusion--alert-00AF5C)](https://modrinth.com/mod/claim-intrusion-alert)
 [![CurseForge](https://img.shields.io/badge/CurseForge-claim--intrusion--alert-F16436)](https://www.curseforge.com/minecraft/mc-mods/claim-intrusion-alert)
 
@@ -61,7 +61,7 @@ With neither installed the mod logs one line at startup and stays idle. Neither 
 
 ## License
 
-[MIT](LICENSE) — modpack inclusion welcome, no credit required.
+[All Rights Reserved](LICENSE) — modpack inclusion welcome, no credit required. Source is published so you can read exactly what it does.
 
 ## Credits
 
