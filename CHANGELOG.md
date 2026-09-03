@@ -1,5 +1,14 @@
 # Changelog
 
+## Unreleased
+
+**この版を切るときに必ず一緒に出すもの**（2026-09-04 に用意済み・未配布）:
+
+- **jar 内アイコン**。`icon.png`（256px）を全セルに配置し、fabric は `fabric.mod.json` の `"icon"`、
+  forge は `mods.toml` の `logoFile`、neoforge は `src/main/templates/META-INF/neoforge.mods.toml` の
+  `logoFile` で参照済み。**0.2.0 までの公開 jar にはアイコンが入っていない**ので、この版で初めて
+  MOD 一覧にアイコンが出る。ビルドし直せばそのまま入る（追加の作業は無い）
+
 ## v0.2.0
 
 **0.1.0 never sent an alert.** It waited for a cancelled event, but NeoForge does not deliver cancelled events to a listener that has not asked for them, and its listener ran at `HIGHEST` priority — ahead of anything that would have cancelled. Both paths were dead. If you are running 0.1.0, it has been silent the entire time.

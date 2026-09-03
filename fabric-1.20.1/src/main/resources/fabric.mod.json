@@ -11,6 +11,7 @@
     "sources":  "https://github.com/KURONAMI333/claim-intrusion-alert"
   },
   "license": "${mod_license}",
+  "icon": "assets/claimintrusionalert/icon.png",
 
   "environment": "*",
 
