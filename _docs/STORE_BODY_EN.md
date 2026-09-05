@@ -1,5 +1,3 @@
-# Claim Intrusion Alert
-
 When someone tries to break, place, or interact inside your claim and the claim mod blocks them, you get a one-line chat message saying who it was, what they tried, and where.
 
 Works with **FTB Chunks** and **Open Parties and Claims**. Either one is enough, both together is fine, and neither of them tells the claim owner anything — the blocked player sees "you can't do that", and the owner sees nothing at all.
@@ -32,9 +30,11 @@ At least one of the two must be installed. With neither, the mod logs one line a
 
 **Scope and limitations**
 
-- Server-side. Clients don't need it, and nothing is drawn on screen — alerts are chat messages.
+- Alerts are delivered as chat messages; the mod does not add an overlay.
 - Covers block break, block place, and block interaction. Entity interactions and item use are not reported.
 - Reports what the claim mod *would* block, so an attempt another mod cancels first is still reported as an attempt.
 - 0.1.0 never actually sent an alert: it waited for a cancelled event that the mod loader does not deliver to it. If you are running 0.1.0, it has been silent the whole time — 0.2.0 is what makes it work.
 
-Free to use in any modpack. Source and issues: https://github.com/KURONAMI333/claim-intrusion-alert
+Bugs and questions: comment on the CurseForge page, or DM @kuronami333 on X.
+
+All Rights Reserved. Modpack inclusion is allowed without permission or credit. Source: https://github.com/KURONAMI333/claim-intrusion-alert
