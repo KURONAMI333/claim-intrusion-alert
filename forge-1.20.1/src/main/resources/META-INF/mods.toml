@@ -2,6 +2,7 @@
 modLoader="javafml"
 loaderVersion="${loader_version_range}"
 license="${mod_license}"
+issueTrackerURL="https://x.com/kuronami333"
 
 [[mods]]
 modId="${mod_id}"
@@ -9,8 +10,7 @@ version="${mod_version}"
 displayName="${mod_name}"
 logoFile="icon.png"
 authors="${mod_authors}"
-displayURL="https://github.com/KURONAMI333/claim-intrusion-alert"
-issueTrackerURL="https://x.com/kuronami333"
+displayURL="https://www.curseforge.com/minecraft/mc-mods/claim-intrusion-alert"
 description='''
 ${mod_description}
 '''

@@ -71,7 +71,7 @@ With neither installed the mod logs one line at startup and stays idle. Neither 
 
 ## Downloads and support
 
-Downloads: [CurseForge](https://www.curseforge.com/minecraft/mc-mods/claim-intrusion-alert) · [GitHub Releases](https://github.com/KURONAMI333/claim-intrusion-alert/releases/tag/v0.2.0).
+Downloads: [CurseForge](https://www.curseforge.com/minecraft/mc-mods/claim-intrusion-alert) · [Modrinth](https://modrinth.com/mod/claim-intrusion-alert).
 
 For bugs and questions, comment on the [CurseForge page](https://www.curseforge.com/minecraft/mc-mods/claim-intrusion-alert) or DM [@kuronami333 on X](https://x.com/kuronami333).
 

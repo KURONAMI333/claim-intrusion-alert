@@ -6,7 +6,7 @@
   "description": "${mod_description}",
   "authors": ["${mod_authors}"],
   "contact": {
-    "homepage": "https://github.com/KURONAMI333/claim-intrusion-alert",
+    "homepage": "https://www.curseforge.com/minecraft/mc-mods/claim-intrusion-alert",
     "issues":   "https://x.com/kuronami333",
     "sources":  "https://github.com/KURONAMI333/claim-intrusion-alert"
   },
