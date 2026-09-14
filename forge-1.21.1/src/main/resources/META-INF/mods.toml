@@ -10,7 +10,7 @@ displayName="${mod_name}"
 logoFile="icon.png"
 authors="${mod_authors}"
 displayURL="https://github.com/KURONAMI333/claim-intrusion-alert"
-issueTrackerURL="https://github.com/KURONAMI333/claim-intrusion-alert/issues"
+issueTrackerURL="https://x.com/kuronami333"
 description='''
 ${mod_description}
 '''

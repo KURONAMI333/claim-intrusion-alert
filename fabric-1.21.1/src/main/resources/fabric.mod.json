@@ -7,7 +7,7 @@
   "authors": ["${mod_authors}"],
   "contact": {
     "homepage": "https://github.com/KURONAMI333/claim-intrusion-alert",
-    "issues":   "https://github.com/KURONAMI333/claim-intrusion-alert/issues",
+    "issues":   "https://x.com/kuronami333",
     "sources":  "https://github.com/KURONAMI333/claim-intrusion-alert"
   },
   "license": "${mod_license}",

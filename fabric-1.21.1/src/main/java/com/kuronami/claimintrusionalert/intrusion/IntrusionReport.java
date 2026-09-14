@@ -15,6 +15,7 @@ import net.minecraft.network.chat.Component;
  *
  * <p>digest（オフライン中の分をログイン時にまとめて出す）はヘッダ 1 行だけ専用キーを持ち、
  * 明細は上と同じ alert キーを再利用する。
+ * クライアントに MOD が無い server-side 運用でも読めるよう、英語の fallback を同時に送る。
  */
 public final class IntrusionReport {
 
@@ -28,15 +29,22 @@ public final class IntrusionReport {
     public static Component digestHeader(int count) {
         return Component.empty()
                 .append(Component.literal("⚠ ").withStyle(ChatFormatting.YELLOW))
-                .append(Component.translatable("claimintrusionalert.digest.header", count)
+                .append(Component.translatableWithFallback(
+                        "claimintrusionalert.digest.header",
+                        "Intrusion attempts while you were away: %1$s", count)
                         .withStyle(ChatFormatting.GOLD));
     }
 
     public static Component format(IntrusionRecord r) {
         return Component.empty()
                 .append(Component.literal("⚠ ").withStyle(ChatFormatting.YELLOW))
-                .append(Component.translatable(
+                .append(Component.translatableWithFallback(
                         "claimintrusionalert.alert." + r.action().key(),
+                        switch (r.action()) {
+                            case BREAK -> "%1$s tried to break a block at (%2$s, %3$s, %4$s) in %5$s.";
+                            case PLACE -> "%1$s tried to place a block at (%2$s, %3$s, %4$s) in %5$s.";
+                            case INTERACT -> "%1$s tried to interact with a block at (%2$s, %3$s, %4$s) in %5$s.";
+                        },
                         Component.literal(r.intruderName()).withStyle(ChatFormatting.AQUA),
                         r.pos().getX(),
                         r.pos().getY(),

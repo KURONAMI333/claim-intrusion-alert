@@ -68,3 +68,11 @@ With neither installed the mod logs one line at startup and stays idle. Neither 
 - Author: KURONAMI
 - FTB Chunks: public `FTBChunksAPI`
 - Open Parties and Claims: public API via reflection (no compile-time dependency, since OPAC publishes no maven artifact)
+
+## Downloads and support
+
+Downloads: [CurseForge](https://www.curseforge.com/minecraft/mc-mods/claim-intrusion-alert) · [GitHub Releases](https://github.com/KURONAMI333/claim-intrusion-alert/releases/tag/v0.2.0).
+
+For bugs and questions, comment on the [CurseForge page](https://www.curseforge.com/minecraft/mc-mods/claim-intrusion-alert) or DM [@kuronami333 on X](https://x.com/kuronami333).
+
+[Source](https://github.com/KURONAMI333/claim-intrusion-alert) · [License](LICENSE)
