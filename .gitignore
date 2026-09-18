@@ -17,9 +17,6 @@ run/
 # Release staging (jar 集約用)
 _release/
 
-# 統括↔executor の作業文書（公開 repo に入れない）
-_handoff/
-GAP_LOG.md
 
 # Test and development logs
 logs/
